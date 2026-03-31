@@ -1,7 +1,12 @@
-.calculadora { display: grid; 
-                grid-template-columns: repeat(4, 1fr); 
-                gap: 8px; 
+.calculadora { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 8px; 
             }
+.pantalla{
+    grid-column: span 4;
+    text-align: right;
+}
 .btn-cero{
     grid-column: span 2;
 }
