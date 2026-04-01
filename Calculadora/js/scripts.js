@@ -17,14 +17,53 @@ document.querySelector('.btn-borrar').addEventListener('click', limpiar);
 
 
 function pulsarNumero(num){
-    display.textContent= num;
+    
+    if(esperandoSegundoNum){
+        //reemplaza: pantalla es el nuevo dígito
+        pantalla = num;
+        esperandoSegundoNum = false;
+    }else{
+        //acumula: si pantalla es '0' reemplaza si no concatena
+        pantalla = pantalla === '0'? num :pantalla +num;
+    }
+    //actualiza lo que se ve
+    display.textContent = pantalla
 };
 
 function pulsarOperador(op){
-    document.getElementsByClassName(".btn-numero") + document.getElementsByClassName(".btn-operador")
+    
+    numAnterior = pantalla; //guarda el numero actual
+    operacion = op;   // guarda +,-,* o /
+    esperandoSegundoNum = true; // el próximo número empieza de cero
 
 }
-function calcularResultado(){}
+function calcularResultado(){
+    if(operacion === '+'){
+        resultado = Number(numAnterior)+Number(pantalla); 
+    }else if(operacion === '-' ){
+        resultado = Number(numAnterior)-Number(pantalla); 
+        
+    }else if(operacion === '*'){
+        resultado = Number(numAnterior)*Number(pantalla); 
+
+    }
+    else if(operacion === '/'){
+        if(pantalla === '0'){
+            display.textContent = "Error: división entre 0";
+            pantalla= '0';
+            numAnterior=null;
+            operacion=null;
+            return //sale de la función sin seguir
+
+        }
+            resultado = Number(numAnterior)/Number(pantalla); 
+
+    };
+    display.textContent = resultado;
+    pantalla = String(resultado);
+    numAnterior = null;
+    operacion = null;
+}
 
 function limpiar(){
     pantalla = '0';
