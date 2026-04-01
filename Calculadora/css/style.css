@@ -6,7 +6,13 @@
 .pantalla{
     grid-column: span 4;
     text-align: right;
+    background-color: #000;
+    color:#fff;
+    padding: 16px;
+    font-size: 32px;
+    border-radius: 8px;
 }
 .btn-cero{
     grid-column: span 2;
 }
+
