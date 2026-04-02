@@ -31,13 +31,20 @@ function pulsarNumero(num){
 };
 
 function pulsarOperador(op){
-    
-    numAnterior = pantalla; //guarda el numero actual
-    operacion = op;   // guarda +,-,* o /
-    esperandoSegundoNum = true; // el próximo número empieza de cero
 
-}
+        if(numAnterior !== null && !esperandoSegundoNum){
+            calcularResultado();
+        }
+        numAnterior = pantalla; //guarda el numero actual
+        operacion = op;   // guarda +,-,* o /
+        esperandoSegundoNum = true; // el próximo número empieza de cero
+    }
+    
+
 function calcularResultado(){
+    if(operacion === null){
+        return;
+    }
     if(operacion === '+'){
         resultado = Number(numAnterior)+Number(pantalla); 
     }else if(operacion === '-' ){

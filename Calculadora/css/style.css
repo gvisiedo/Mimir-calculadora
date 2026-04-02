@@ -1,7 +1,11 @@
 .calculadora { 
+    width: 320px;
+    margin:50px auto;
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
     gap: 8px; 
+    background-color: lightgrey;
+    padding: 10px;
             }
 .pantalla{
     grid-column: span 4;
@@ -12,7 +16,22 @@
     font-size: 32px;
     border-radius: 8px;
 }
-.btn-cero{
-    grid-column: span 2;
+
+.btn-operador, .btn-numero, .btn-igual, .btn-borrar{
+    border-radius: 10px;
+    background-color: orange;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.btn-operador{
+    background-color: #fff;
+}
+.btn-borrar{
+    background-color: red;
+}
+.btn-igual{
+    background-color: green;
 }
 
